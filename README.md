@@ -7,7 +7,7 @@ Group fields into modal dialog, accessible from a button.
 In your Directus installation root
 
 ```bash
-npm install dimitrov-adrian/directus-extension-group-modal-interface
+npm install directus-extension-group-modal-interface
 ```
 
 Restart Directus

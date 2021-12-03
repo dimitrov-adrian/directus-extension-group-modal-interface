@@ -1,6 +1,6 @@
 {
   "name": "directus-extension-group-modal-interface",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0",
   "author": {
     "email": "dimitrov.adrian+gh@gmail.com",
     "name": "Adrian Dimitrov"
@@ -17,11 +17,12 @@
     "type": "interface",
     "path": "dist/index.js",
     "source": "src/index.ts",
-    "host": "^v9.0.0-rc.100",
+    "host": "^v9.0.0",
     "hidden": false
   },
   "scripts": {
-    "build": "directus-extension build"
+    "build": "directus-extension build",
+    "dev": "directus-extension build -m -w"
   },
   "devDependencies": {
     "@directus/extensions-sdk": "^9.0.0",
