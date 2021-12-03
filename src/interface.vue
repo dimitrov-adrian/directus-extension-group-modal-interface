@@ -28,7 +28,7 @@
 					/>
 				</v-card-text>
 				<v-card-actions>
-					<v-button @click="internalActive = false">{{ t('back') }}</v-button>
+					<v-button @click="internalActive = false">{{ t('done') }}</v-button>
 				</v-card-actions>
 			</v-card>
 		</v-dialog>
@@ -36,7 +36,6 @@
 		<v-drawer
 			v-else
 			v-model="internalActive"
-			:placement="layout"
 			:persistent="true"
 			:title="groupTitle"
 			:icon="icon || 'box'"

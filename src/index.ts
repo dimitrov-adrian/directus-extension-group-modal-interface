@@ -1,11 +1,11 @@
-import { defineInterface } from '@directus/shared/utils';
+import { InterfaceConfig } from '@directus/shared/types';
 import InterfaceGroupModal from './interface.vue';
 
-export default defineInterface({
+export default {
 	id: 'extension-group-modal',
 	name: '$t:interfaces.user.modes.modal',
 	description: 'Group fields into modal dialog, accessible from a button',
-	icon: 'fit_screen',
+	icon: 'web_asset',
 	component: InterfaceGroupModal,
 	hideLabel: true,
 	hideLoader: true,
@@ -24,7 +24,6 @@ export default defineInterface({
 				options: {
 					choices: [
 						{ text: '$t:interfaces.user.modes.modal', value: 'modal' },
-						{ text: '$t:wysiwyg_options.aligncenter', value: 'center' },
 						{ text: '$t:sidebar', value: 'sidebar' },
 					],
 				},
@@ -81,4 +80,4 @@ export default defineInterface({
 			},
 		},
 	],
-});
+} as InterfaceConfig;
