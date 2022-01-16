@@ -48,8 +48,17 @@ export default {
 			},
 		},
 		{
-			field: 'type',
-			name: '$t:type',
+			field: 'headerIcon',
+			name: '$t:interfaces.group-detail.header_icon',
+			type: 'string',
+			meta: {
+				interface: 'select-icon',
+				width: 'half',
+			},
+		},
+		{
+			field: 'headerColor',
+			name: '$t:interfaces.group-detail.header_color',
 			type: 'string',
 			meta: {
 				width: 'half',
@@ -58,7 +67,7 @@ export default {
 				options: {
 					choices: [
 						{ text: '$t:primary', value: 'primary' },
-						{ text: '$t:normal', value: '' },
+						{ text: '$t:normal', value: 'secondary' },
 						{ text: '$t:info', value: 'info' },
 						{ text: '$t:success', value: 'success' },
 						{ text: '$t:warning', value: 'warning' },
@@ -68,15 +77,6 @@ export default {
 			},
 			schema: {
 				default_value: '',
-			},
-		},
-		{
-			field: 'icon',
-			name: '$t:icon',
-			type: 'string',
-			meta: {
-				interface: 'select-icon',
-				width: 'half',
 			},
 		},
 	],

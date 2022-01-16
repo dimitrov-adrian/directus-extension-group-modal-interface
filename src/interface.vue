@@ -3,15 +3,15 @@
 		<v-dialog v-if="layout === 'modal'" v-model="internalActive" :persistent="true" placement="center">
 			<template #activator="{ on }">
 				<component :is="validationErrors.length > 0 ? 'v-badge' : 'div'" icon="priority_high" bordered>
-					<v-button small class="trigger-button" :class="type || 'secondary'" @click="on">
-						<v-icon v-if="icon" :name="icon" left :disabled="disabled" />
+					<v-button small class="trigger-button" :class="headerColor" @click="on">
+						<v-icon v-if="headerIcon" :name="headerIcon" left :disabled="disabled" />
 						{{ groupTitle }}
 					</v-button>
 				</component>
 			</template>
 			<v-card>
 				<v-card-title>
-					<v-icon v-if="icon" :name="icon" left :disabled="disabled" />
+					<v-icon v-if="headerIcon" :name="headerIcon" left :disabled="disabled" />
 					{{ groupTitle }}
 				</v-card-title>
 				<v-card-text>
@@ -38,13 +38,13 @@
 			v-model="internalActive"
 			:persistent="true"
 			:title="groupTitle"
-			:icon="icon || 'box'"
+			:icon="headerIcon || 'box'"
 			@cancel="internalActive = false"
 		>
 			<template #activator="{ on }">
 				<component :is="validationErrors.length > 0 ? 'v-badge' : 'div'" icon="priority_high" bordered>
-					<v-button small class="trigger-button" :class="type || 'secondary'" @click="on">
-						<v-icon v-if="icon" :name="icon" left :disabled="disabled" />
+					<v-button small class="trigger-button" :class="headerColor" @click="on">
+						<v-icon v-if="headerIcon" :name="headerIcon" left :disabled="disabled" />
 						{{ groupTitle }}
 					</v-button>
 				</component>
@@ -116,20 +116,20 @@ export default defineComponent({
 			default: () => [],
 		},
 		layout: {
-			type: String,
+			type: String as PropType<'modal' | 'sidebar'>,
 			default: 'modal',
 		},
 		title: {
 			type: String,
 			default: null,
 		},
-		icon: {
+		headerIcon: {
 			type: String,
 			default: null,
 		},
-		type: {
-			type: String,
-			default: null,
+		headerColor: {
+			type: String as PropType<'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger'>,
+			default: 'secondary',
 		},
 	},
 	emits: ['apply'],
@@ -137,7 +137,7 @@ export default defineComponent({
 		const { t } = useI18n();
 		const internalActive = ref<boolean>(false);
 		const values = inject('values', ref<Record<string, any>>({}));
-		const groupTitle = computed(() => {
+		const groupTitle = computed<string>(() => {
 			if (!props.title) return props.field.name;
 
 			return render(props.title, values.value);
