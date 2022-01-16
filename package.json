@@ -1,6 +1,6 @@
 {
   "name": "directus-extension-group-modal-interface",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "email": "dimitrov.adrian+gh@gmail.com",
     "name": "Adrian Dimitrov"
@@ -28,7 +28,7 @@
     "@directus/extensions-sdk": "^9.0.0",
     "micromustache": "^8.0.3",
     "prettier": "^2.4.1",
-    "directus-codestyle": "dimitrov-adrian/directus-codestyle",
+    "directus-codestyle": "https://github.com/dimitrov-adrian/directus-codestyle",
     "typescript": "^4.5.2"
   },
   "files": [
