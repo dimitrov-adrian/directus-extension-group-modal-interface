@@ -1,6 +1,6 @@
 <template>
 	<div class="group-modal">
-		<v-dialog v-if="layout === 'modal'" v-model="internalActive" :persistent="true" placement="center">
+		<v-dialog v-if="layout === 'modal'" v-model="internalActive" @esc="internalActive = false" :persistent="true" placement="center">
 			<template #activator="{ on }">
 				<component :is="validationErrors.length > 0 ? 'v-badge' : 'div'" icon="priority_high" bordered>
 					<v-button small class="trigger-button" :class="headerColor" @click="on">
